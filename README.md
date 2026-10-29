@@ -23,6 +23,6 @@ Application web React/Vite avec une API Node.js/Express et une base MySQL.
 - Vercel détecte Vite ; la configuration `frontend/vercel.json` redirige les routes React vers `index.html`.
 - Renseigne `VITE_API_URL` dans les variables d’environnement Vercel avec l’URL complète de l’API, par exemple `https://api.example.com/api`.
 - Pour Railway, crée un service MySQL et un service Node depuis ce dépôt avec `backend` comme répertoire racine. Le service Node démarre avec `npm start`. Importe `backend/database.sql` dans MySQL et mappe ses valeurs de connexion vers `DB_HOST`, `DB_USER`, `DB_PASSWORD` et `DB_NAME`.
-- Configure aussi `PORT`, `JWT_SECRET` et `FRONTEND_URL` dans le service API Railway. `FRONTEND_URL` doit correspondre exactement au domaine Vercel autorisé.
+- Configure aussi `PORT`, `JWT_SECRET` et `FRONTEND_URL` dans le service API Railway. `FRONTEND_URL` doit contenir l’URL exacte du frontend publié (Vercel ou GitHub Pages) ; plusieurs origines peuvent être séparées par des virgules.
 - `VITE_OPENWEATHER_API_KEY` configure la météo côté frontend : cette clé sera visible dans le navigateur. Crée une clé dédiée et limite-la par domaine/quotas chez le fournisseur ; ne réutilise pas la clé précédemment inscrite dans le code.
 - N’envoie jamais les fichiers `.env` ou les secrets sur GitHub.
