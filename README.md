@@ -10,6 +10,13 @@ Application web React/Vite avec une API Node.js/Express et une base MySQL.
 4. Copie `frontend/.env.example` vers `frontend/.env`. En local, le proxy Vite dirige `/api` vers `http://localhost:3000`.
 5. Lance l’interface depuis `frontend/` avec `npm install` puis `npm run dev`.
 
+## Déploiement GitHub Pages
+
+- Dans **Settings → Pages**, définis **Source** sur **GitHub Actions**.
+- Le workflow `.github/workflows/deploy-pages.yml` construit automatiquement `frontend/` à chaque changement publié sur `main`, puis déploie le résultat sur `https://cheickby-off.github.io/AgriMali/`.
+- Si l’API Railway est prête, ajoute `VITE_API_URL` dans les **Variables** du dépôt GitHub avec l’URL complète se terminant par `/api`. Sans API configurée, l’interface s’affiche mais les données et connexions à l’API ne fonctionneront pas.
+- Après chaque déploiement, vérifie l’exécution du workflow dans l’onglet **Actions** du dépôt.
+
 ## Déploiement Vercel
 
 - Importe le dépôt GitHub dans Vercel et définis `frontend` comme **Root Directory**.
